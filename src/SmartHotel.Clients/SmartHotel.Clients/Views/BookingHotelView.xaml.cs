@@ -9,6 +9,8 @@ namespace SmartHotel.Clients.Core.Views
 
         private double _lastScroll;
 
+        private Grid PreGrid = null;
+
         public BookingHotelView()
         {
             if (Device.RuntimePlatform != Device.iOS)
@@ -19,6 +21,56 @@ namespace SmartHotel.Clients.Core.Views
             NavigationPage.SetBackButtonTitle(this, string.Empty);
 
             InitializeComponent();
+
+            this.HotelButton.Focused += TabFocused;
+            this.HotelButton.Unfocused += TabUnfocused;
+            this.RoomsButton.Focused += TabFocused;
+            this.RoomsButton.Unfocused += TabUnfocused;
+            this.ReviewsButton.Focused += TabFocused;
+            this.ReviewsButton.Unfocused += TabUnfocused;
+            this.BookNowButton.Focused += Button_Focused;
+            this.BookNowButton.Unfocused += Button_Unfocused;
+        }
+
+        private void TabUnfocused(object sender, FocusEventArgs e)
+        {
+            PreGrid.IsVisible = false;
+        }
+
+        private void TabFocused(object sender, FocusEventArgs e)
+        {
+            var button = sender as Button;
+            if (button == this.HotelButton)
+            {
+                PreGrid = this.HotelGrid;
+            }
+            else if (button == this.RoomsButton)
+            {
+                PreGrid = this.RoomGrid;
+            }
+            else if (button == this.ReviewsButton)
+            {
+                PreGrid = this.ReviewsGrid;
+            }
+            PreGrid.IsVisible = true;
+        }
+
+        private void Button_Unfocused(object sender, FocusEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                button.Opacity = 0.0;
+            }
+        }
+
+        private void Button_Focused(object sender, FocusEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                button.Opacity = 0.6;
+            }
         }
 
         protected override void OnAppearing()

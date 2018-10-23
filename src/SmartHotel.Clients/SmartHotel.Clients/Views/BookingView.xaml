@@ -34,7 +34,7 @@
                 <Setter Property="VerticalOptions" 
                         Value="End" />
                 <Setter Property="Margin" 
-                        Value="24, 0, 0, 18" />
+                        Value="24, 0, 0, 36" />
 
             </Style>
 
@@ -61,8 +61,6 @@
                         Value="{StaticResource WhiteColor}" />
                 <Setter Property="VerticalOptions"
                         Value="Start" />
-                <Setter Property="VerticalOptions"
-                        Value="Start" />
                 <Setter Property="TranslationY">
                     <OnPlatform x:TypeArguments="x:Double">
                         <On Platform="Android, iOS, UWP" Value="-14" />
@@ -70,7 +68,7 @@
                             <OnIdiom x:TypeArguments="x:Double"
                              Phone="-14" 
                              Tablet="-14" 
-                             TV="-30" />
+                             TV="-40" />
                         </On>
                     </OnPlatform>
                 </Setter>
@@ -317,11 +315,11 @@
                 <ctrls:ButtonFrame   
                     Grid.Row="1"
                     Style="{StaticResource SearchFrameStyle}">
-                    <ctrls:ExtendedEntry
+                    <!--ctrls:ExtendedEntry
                         Text="{Binding Search, Mode=TwoWay}"
                         Style="{StaticResource SearchTextStyle}" 
                         LineColor="{StaticResource WhiteColor}"
-                        FocusLineColor="{StaticResource WhiteColor}" />
+                        FocusLineColor="{StaticResource WhiteColor}" /-->
                 </ctrls:ButtonFrame>
                 <!-- Next button -->
                 <Grid
@@ -337,6 +335,8 @@
                         Text="{extensions:Translate NextMayus}"
                         Style="{StaticResource NextTextStyle}"/>
                 </Grid>
+                <Button Grid.Row="2" BackgroundColor="LightGray" Opacity="0.0" x:Name="NextButton"
+                                    Command="{Binding NextCommand}"/>
             </Grid>
             <ActivityIndicator 
                 Grid.RowSpan="2"

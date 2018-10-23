@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Tizen;
 
 namespace SmartHotel.Clients.Core.Controls
 {

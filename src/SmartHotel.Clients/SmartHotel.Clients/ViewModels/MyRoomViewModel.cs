@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Tizen;
 
 namespace SmartHotel.Clients.Core.ViewModels
 {
@@ -23,6 +24,11 @@ namespace SmartHotel.Clients.Core.ViewModels
         private bool _need;
         private bool _find;
         private bool _noDisturb;
+
+        //public bool Ice = false;
+        //public bool Toothbrush = false;
+        //public bool Towels = false;
+        //public bool Leak = false;
 
         private readonly IOpenUriService _openUrlService;
         private readonly IAnalyticService _analyticService;
@@ -141,11 +147,21 @@ namespace SmartHotel.Clients.Core.ViewModels
 
         public ICommand EcoModeCommand => new Command(EcoMode);
 
+        public ICommand DisturbCommand => new Command(DisturbAsync);
+
+        //public ICommand IceCommand => new Command(SetIceAsync);
+
+        //public ICommand ToothbrsuhCommand => new Command(SetToothBrushAsync);
+
+        //public ICommand TowelsCommand => new Command(SetTowelsAsync);
+
+        //public ICommand LeakCommand => new Command(SetLeakAsync);
+
         public override async Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
 
-            await Task.Delay(500);
+            await Task.Delay(50);
             ActivateDefaultMode();
 
             IsBusy = false;
@@ -220,6 +236,32 @@ namespace SmartHotel.Clients.Core.ViewModels
                   Resources.ExceptionTitle,
                   Resources.DialogOk);
             }
+        }
+
+        //private void SetIceAsync()
+        //{
+        //    Ice = !Ice;
+        //    Log.Debug("Demo", "" + Ice);
+        //}
+
+        //private void SetToothBrushAsync()
+        //{
+        //    Toothbrush = !Toothbrush;
+        //}
+
+        //private void SetTowelsAsync()
+        //{
+        //    Towels = !Towels;
+        //}
+
+        //private void SetLeakAsync()
+        //{
+        //    Leak = !Leak;
+        //}
+
+        private void DisturbAsync()
+        {
+            NoDisturb = !NoDisturb;
         }
 
         private void EcoMode()

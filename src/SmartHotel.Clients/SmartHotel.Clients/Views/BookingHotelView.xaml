@@ -97,6 +97,16 @@
                         Value="24, 0" />
             </Style>
 
+            <Style x:Key="TabButtonStyle" 
+                   TargetType="Button">
+                <Setter Property="HorizontalOptions" 
+                        Value="Center" />
+                <Setter Property="VerticalOptions" 
+                        Value="Center" />
+                <Setter Property="Margin" 
+                        Value="24, 30" />
+            </Style>
+
             <Color x:Key="AccentTabColor">#378D93</Color>
 
             <Color x:Key="TabSeparatorColor">#F4F5F5</Color>
@@ -440,7 +450,8 @@
                         <Grid
                             Grid.Column="0"
                             Grid.Row="1"
-                            BackgroundColor="{StaticResource WhiteColor}">
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            >
                             <Label   
                                 Text="{extensions:Translate TheHotel}"
                                 Style="{StaticResource TabTextStyle}">
@@ -454,12 +465,14 @@
                                 Style="{StaticResource TabSeparatorStyle}"/>
                             <Grid   
                                 IsVisible="{Binding MyHotel}"
-                                Style="{StaticResource SelectedTabStyle}"/>
+                                Style="{StaticResource SelectedTabStyle}"  x:Name="HotelGrid"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding MyHotelCommand}" />
                             </Grid.GestureRecognizers>
                         </Grid>
+                        <Button Grid.Row="1" Grid.Column="0" BackgroundColor="LightGray" Opacity="0.0" x:Name="HotelButton"
+                                Command="{Binding MyHotelCommand}"/>
                         <Grid
                             Grid.Column="1"
                             Grid.Row="1"
@@ -477,12 +490,15 @@
                                 Style="{StaticResource TabSeparatorStyle}"/>
                             <Grid  
                                 IsVisible="{Binding Rooms}"
-                                Style="{StaticResource SelectedTabStyle}"/>
+                                Style="{StaticResource SelectedTabStyle}"
+                                 x:Name="RoomGrid"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding RoomsCommand}" />
                             </Grid.GestureRecognizers>
                         </Grid>
+                        <Button Grid.Row="1" Grid.Column="1" BackgroundColor="LightGray" Opacity="0.0" x:Name="RoomsButton"
+                                Command="{Binding RoomsCommand}"/>
                         <Grid
                             Grid.Column="2"
                             Grid.Row="1" 
@@ -500,12 +516,15 @@
                                 Style="{StaticResource TabSeparatorStyle}"/>
                             <Grid     
                                 IsVisible="{Binding Reviews}"
-                                Style="{StaticResource SelectedTabStyle}"/>
+                                Style="{StaticResource SelectedTabStyle}"
+                                x:Name="ReviewsGrid"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding ReviewsCommand}" />
                             </Grid.GestureRecognizers>
                         </Grid>
+                        <Button Grid.Row="1" Grid.Column="2" BackgroundColor="LightGray" Opacity="0.0" x:Name="ReviewsButton"
+                                Command="{Binding ReviewsCommand}"/>
                         <Grid
                             Grid.Column="0"
                             Grid.ColumnSpan="3"
@@ -651,6 +670,15 @@
                             Command="{Binding BookingCommand}" />
                     </Grid.GestureRecognizers>
                 </Grid>
+                <Button BackgroundColor="LightGray" Opacity="0.0" x:Name="BookNowButton" VerticalOptions="End"
+                        Command="{Binding BookingCommand}">
+                    <Button.HeightRequest>
+                        <OnIdiom x:TypeArguments="x:Double"
+                                         Phone="60" 
+                                         Tablet="60" 
+                                         TV="150" />
+                    </Button.HeightRequest>
+                </Button>
                 <ActivityIndicator 
                     Color="{StaticResource AccentColor}"
                     IsRunning="{Binding IsBusy}" 

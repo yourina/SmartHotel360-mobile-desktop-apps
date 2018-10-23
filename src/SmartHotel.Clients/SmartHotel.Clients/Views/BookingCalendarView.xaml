@@ -323,6 +323,8 @@
                         Text="NEXT"
                         Style="{StaticResource NextTextStyle}"/>
                 </Grid>
+                <Button Grid.Row="2" BackgroundColor="LightGray" Opacity="0.0" x:Name="NextButton"
+                                    Command="{Binding NextCommand}"/>
             </Grid>
             <ActivityIndicator 
                 Color="{StaticResource AccentColor}"

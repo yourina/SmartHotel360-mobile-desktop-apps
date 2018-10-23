@@ -15,14 +15,14 @@ namespace SmartHotel.Clients.Core.Services.Hotel
             new City
             {
                 Id = 1,
-                Name = "Barcelona",
-                Country = "Spain",
+                Name = "San Francisco",
+                Country = "United States",
             },
             new City
             {
                 Id = 2,
-                Name = "Seville",
-                Country = "Spain",
+                Name = "San Francisco",
+                Country = "United States",
             },
             new City
             {
@@ -179,35 +179,35 @@ namespace SmartHotel.Clients.Core.Services.Hotel
 
         public async Task<IEnumerable<City>> GetCitiesAsync()
         {
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             return Cities;
         }
 
         public async Task<Models.Hotel> GetHotelByIdAsync(int id)
         {
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             return Hotels.FirstOrDefault(h => h.Id == id);
         }
 
         public async Task<IEnumerable<Models.Hotel>> GetMostVisitedAsync()
         {
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             return Hotels;
         }
 
         public async Task<IEnumerable<Review>> GetReviewsAsync(int id)
         {
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             return Reviews.Where(r => r.HotelId == id).ToObservableCollection();
         }
 
         public async Task<IEnumerable<Models.Hotel>> SearchAsync(int cityId)
         {
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             return Hotels
                 .Where(h => h.CityId == cityId);
@@ -215,7 +215,7 @@ namespace SmartHotel.Clients.Core.Services.Hotel
 
         public async Task<IEnumerable<Models.Hotel>> SearchAsync(int cityId, int rating, int minPrice, int maxPrice)
         {
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             return Hotels
                 .Where(h => h.CityId == cityId && h.Rating == rating && h.PricePerNight >= minPrice && h.PricePerNight < maxPrice)
@@ -224,14 +224,14 @@ namespace SmartHotel.Clients.Core.Services.Hotel
 
         public async Task<IEnumerable<Service>> GetHotelServicesAsync()
         {
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             return HotelServices;
         }
 
         public async Task<IEnumerable<Service>> GetRoomServicesAsync()
         {
-            await Task.Delay(500);
+            await Task.Delay(50);
 
             return RoomServices;
         }
