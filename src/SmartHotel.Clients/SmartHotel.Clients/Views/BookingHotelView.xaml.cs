@@ -69,7 +69,7 @@ namespace SmartHotel.Clients.Core.Views
             var button = sender as Button;
             if (button != null)
             {
-                button.Opacity = 0.6;
+                button.Opacity = 0.2;
             }
         }
 

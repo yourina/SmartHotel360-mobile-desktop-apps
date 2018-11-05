@@ -36,35 +36,35 @@ namespace SmartHotel.Clients.Core.Services.Booking
 
         public async Task<IEnumerable<Models.BookingSummary>> GetBookingsAsync(string token = "")
         {
-            await Task.Delay(500);
+            await Task.Delay(10);
 
             return Bookings;
         }
 
         public async Task<IEnumerable<Models.BookingSummary>> GetLatestBookingsAsync(string token = "")
         {
-            await Task.Delay(500);
+            await Task.Delay(10);
 
             return Bookings;
         }
 
         public async Task<IEnumerable<Models.BookingSummary>> GetBookingsByEmailAsync(string email, string token = "")
         {
-            await Task.Delay(500);
+            await Task.Delay(10);
 
             return Bookings.Where(b => b.UserId == email);
         }
 
         public async Task<IEnumerable<Models.BookingSummary>> GetLatestBookingsByEmailAsync(string email, string token = "")
         {
-            await Task.Delay(500);
+            await Task.Delay(10);
 
             return Bookings.Where(b => b.UserId == email);
         }
 
         public async Task<Models.Booking> CreateBookingAsync(Models.Booking booking, string token = "")
         {
-            await Task.Delay(500);
+            await Task.Delay(10);
 
             Bookings.Add(new Models.BookingSummary
             {
@@ -79,7 +79,7 @@ namespace SmartHotel.Clients.Core.Services.Booking
 
         public async Task<Models.Occupancy> GetOccupancyInformationAsync(int roomId, DateTime date)
         {
-            await Task.Delay(500);
+            await Task.Delay(10);
 
             return Occupancy;
         }

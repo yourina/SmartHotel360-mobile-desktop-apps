@@ -40,7 +40,7 @@ namespace SmartHotel.Clients.Core.Services.Hotel
                 CityId = 1,
                 Name = "Secret Camp Hotel",
                 Picture = Device.RuntimePlatform == Device.UWP ? "Assets/img_1.png" : ( Device.RuntimePlatform == Device.Tizen? "img_1.png" :"img_1"),
-                City = "Barcelona, Spain",
+                City = "San Francisco, United States",
                 PricePerNight = 76,
                 Price = 76, 
                 Rating = 3,
@@ -64,7 +64,7 @@ namespace SmartHotel.Clients.Core.Services.Hotel
                 CityId = 2,
                 Name = "Prism Hotel",
                 Picture = Device.RuntimePlatform == Device.UWP ? "Assets/img_2.png" : ( Device.RuntimePlatform == Device.Tizen? "img_2.png" :"img_2"),
-                City = "Seville, Spain",
+                City = "San Francisco, United States",
                 PricePerNight = 161,
                 Price = 161,
                 Rating = 3,
@@ -179,35 +179,35 @@ namespace SmartHotel.Clients.Core.Services.Hotel
 
         public async Task<IEnumerable<City>> GetCitiesAsync()
         {
-            await Task.Delay(50);
+            await Task.Delay(10);
 
             return Cities;
         }
 
         public async Task<Models.Hotel> GetHotelByIdAsync(int id)
         {
-            await Task.Delay(50);
+            await Task.Delay(10);
 
             return Hotels.FirstOrDefault(h => h.Id == id);
         }
 
         public async Task<IEnumerable<Models.Hotel>> GetMostVisitedAsync()
         {
-            await Task.Delay(50);
+            await Task.Delay(10);
 
             return Hotels;
         }
 
         public async Task<IEnumerable<Review>> GetReviewsAsync(int id)
         {
-            await Task.Delay(50);
+            await Task.Delay(10);
 
             return Reviews.Where(r => r.HotelId == id).ToObservableCollection();
         }
 
         public async Task<IEnumerable<Models.Hotel>> SearchAsync(int cityId)
         {
-            await Task.Delay(50);
+            await Task.Delay(10);
 
             return Hotels
                 .Where(h => h.CityId == cityId);
@@ -215,7 +215,7 @@ namespace SmartHotel.Clients.Core.Services.Hotel
 
         public async Task<IEnumerable<Models.Hotel>> SearchAsync(int cityId, int rating, int minPrice, int maxPrice)
         {
-            await Task.Delay(50);
+            await Task.Delay(10);
 
             return Hotels
                 .Where(h => h.CityId == cityId && h.Rating == rating && h.PricePerNight >= minPrice && h.PricePerNight < maxPrice)
@@ -224,14 +224,14 @@ namespace SmartHotel.Clients.Core.Services.Hotel
 
         public async Task<IEnumerable<Service>> GetHotelServicesAsync()
         {
-            await Task.Delay(50);
+            await Task.Delay(10);
 
             return HotelServices;
         }
 
         public async Task<IEnumerable<Service>> GetRoomServicesAsync()
         {
-            await Task.Delay(50);
+            await Task.Delay(10);
 
             return RoomServices;
         }

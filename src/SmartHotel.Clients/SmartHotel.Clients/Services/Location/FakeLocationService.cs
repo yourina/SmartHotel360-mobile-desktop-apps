@@ -7,7 +7,7 @@ namespace SmartHotel.Clients.Core.Services.Location
     {
         public async Task<GeoLocation> GetPositionAsync()
         {
-            await Task.Delay(50);
+            await Task.Delay(5);
 
             return GeoLocation.Parse(AppSettings.DefaultFallbackMapsLocation);
         }

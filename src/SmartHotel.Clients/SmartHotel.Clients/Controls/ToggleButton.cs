@@ -137,7 +137,7 @@ namespace SmartHotel.Clients.Core.Controls
             if (toggleButton.Animate)
             {
                 await toggleButton.ScaleTo(0.9, 50, Easing.Linear);
-                await Task.Delay(100);
+                await Task.Delay(10);
                 await toggleButton.ScaleTo(1, 50, Easing.Linear);
             }
         }
